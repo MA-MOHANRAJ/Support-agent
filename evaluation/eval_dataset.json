@@ -1,0 +1,182 @@
+{
+  "task1_test_cases": [
+    {
+      "test_id": "T1-TC-01",
+      "name": "P1 Production Outage (Key Management Down)",
+      "type": "standard",
+      "input": {
+        "ticket_text": "URGENT: SecureVault Key Management is completely down in our production environment. None of our microservices can decrypt API tokens and our entire customer-facing checkout flow is failing with 500 errors. We need immediate P1 escalation!"
+      },
+      "expected": {
+        "product": "SecureVault",
+        "category": "Bug",
+        "urgency": "P1",
+        "known_issue": false,
+        "recommended_team_keywords": ["Security", "IAM", "Tier 2", "Engineering"]
+      },
+      "acceptance_criteria": "Must classify as P1 Bug, route to Security or Tier 2, provide safety warning for secrets/credentials, and request starting timestamps/logs without unsupported claims."
+    },
+    {
+      "test_id": "T1-TC-02",
+      "name": "Integration Issue with Known Knowledge Base Match",
+      "type": "standard",
+      "input": {
+        "subject": "SSO configuration not working for new users — CloudSync",
+        "body": "Existing users can log in fine via Okta SSO, but all newly added employees receive an error when attempting to authenticate in CloudSync. We need guidance on how to fix this for our team.",
+        "product": "CloudSync",
+        "product_area": "Integrations"
+      },
+      "expected": {
+        "product": "CloudSync",
+        "category_in": ["Integration", "Bug"],
+        "known_issue": true,
+        "expected_kb_source_substring_in": ["authentication-sso", "cloudsync"]
+      },
+      "acceptance_criteria": "Must identify category as Integration or Bug, detect known_issue=true, cite the authentic SSO troubleshooting guide, and include verified troubleshooting steps in draft response."
+    },
+    {
+      "test_id": "T1-TC-03",
+      "name": "Routine How-To / Configuration Query",
+      "type": "standard",
+      "input": {
+        "subject": "How to set up automated schedule triggers in WorkflowEngine",
+        "body": "Hi team, could you guide us on how to configure cron-based schedule triggers for data export workflows in WorkflowEngine?",
+        "product": "WorkflowEngine"
+      },
+      "expected": {
+        "product": "WorkflowEngine",
+        "category": "How-To",
+        "urgency": "P4",
+        "recommended_team_keywords": ["Tier 1", "Support"]
+      },
+      "acceptance_criteria": "Must classify as P4 How-To, route to Tier 1 Support, and provide clear step-by-step guidance."
+    },
+    {
+      "test_id": "T1-TC-04",
+      "name": "Performance Degradation / Connection Pool Exhaustion",
+      "type": "standard",
+      "input": {
+        "subject": "DataBridge Pro query latency and connection pool timeouts",
+        "body": "Our batch ingestion pipelines in DataBridge Pro are experiencing severe latency spikes and database connection pool exhaustion under 200 concurrent user load.",
+        "product": "DataBridge Pro"
+      },
+      "expected": {
+        "product": "DataBridge Pro",
+        "category": "Performance",
+        "urgency_in": ["P2", "P3"],
+        "recommended_team_keywords": ["Tier 2", "Data Platform", "Engineering"]
+      },
+      "acceptance_criteria": "Must classify as Performance category with P2 or P3 urgency and explain resource exhaustion in reasoning."
+    },
+    {
+      "test_id": "T1-TC-05",
+      "name": "Adversarial: Highly Ambiguous / Vague Customer Ticket",
+      "type": "adversarial",
+      "input": {
+        "ticket_text": "Nothing works. Fix this immediately or we will cancel our account today."
+      },
+      "expected": {
+        "known_issue": false
+      },
+      "acceptance_criteria": "Must handle graceful ingestion without crashing, avoid hallucinating known KB documents, and draft response asking clarifying diagnostic questions to identify the product and issue."
+    },
+    {
+      "test_id": "T1-TC-06",
+      "name": "Billing and License Expansion Request",
+      "type": "standard",
+      "input": {
+        "subject": "Need to purchase 50 additional user seats",
+        "body": "We have reached our licensed user capacity in AnalyticsHub and need to expand by 50 additional seats ahead of our monthly billing cycle.",
+        "product": "AnalyticsHub"
+      },
+      "expected": {
+        "category": "Billing",
+        "urgency_in": ["P3", "P4"],
+        "recommended_team_keywords": ["Billing", "Account", "Operations", "Tier 1"]
+      },
+      "acceptance_criteria": "Must classify as Billing category with appropriate non-emergency urgency and route to Billing or Account Operations."
+    }
+  ],
+  "task2_test_cases": [
+    {
+      "test_id": "T2-TC-01",
+      "name": "At-Risk Account with Churn & Competitor Signals (ACC-3336)",
+      "type": "standard",
+      "input": {
+        "account_id": "ACC-3336"
+      },
+      "expected": {
+        "health_status": "At Risk",
+        "min_open_risks": 2,
+        "required_quote_substrings": [
+          "Decision maker considering competing vendor evaluation",
+          "3 consecutive P1 tickets in the last 30 days"
+        ]
+      },
+      "acceptance_criteria": "Must produce 3-5 sentence Executive Summary, detect competitor evaluation and P1 escalation risks with direct quote proof, and recommend targeted QBR talking points."
+    },
+    {
+      "test_id": "T2-TC-02",
+      "name": "Healthy Account with Active Adoption (ACC-3033)",
+      "type": "standard",
+      "input": {
+        "account_id": "ACC-3033"
+      },
+      "expected": {
+        "health_status": "Healthy",
+        "min_talking_points": 3
+      },
+      "acceptance_criteria": "Must synthesize positive adoption metrics, identify any minor risks, and generate proactive expansion talking points."
+    },
+    {
+      "test_id": "T2-TC-03",
+      "name": "High-Value Enterprise Account with Support Tickets (ACC-4654)",
+      "type": "standard",
+      "input": {
+        "account_id": "ACC-4654"
+      },
+      "expected": {
+        "health_status": "Healthy",
+        "min_talking_points": 3
+      },
+      "acceptance_criteria": "Must pull last 90 days of tickets, calculate seat utilization percentage correctly, and produce balanced QBR brief."
+    },
+    {
+      "test_id": "T2-TC-04",
+      "name": "Adversarial: Non-Existent Account ID (ACC-9999)",
+      "type": "adversarial",
+      "input": {
+        "account_id": "ACC-9999"
+      },
+      "expected": {
+        "should_error": true,
+        "error_type": "ValueError"
+      },
+      "acceptance_criteria": "Must cleanly reject invalid account ID with ValueError or 404 Not Found without throwing unhandled server error."
+    },
+    {
+      "test_id": "T2-TC-05",
+      "name": "Adversarial: Account with Zero Escalation Notes & Clean History (ACC-7893)",
+      "type": "adversarial",
+      "input": {
+        "account_id": "ACC-7893"
+      },
+      "expected": {
+        "min_talking_points": 3
+      },
+      "acceptance_criteria": "Must generate a coherent executive summary without hallucinating fabricated tickets or non-existent escalation notes."
+    },
+    {
+      "test_id": "T2-TC-06",
+      "name": "TAM Brief Determinism Test Across Consecutive Invocations",
+      "type": "standard",
+      "input": {
+        "account_id": "ACC-3336"
+      },
+      "expected": {
+        "deterministic": true
+      },
+      "acceptance_criteria": "Running the evaluation twice on identical account inputs must return 100% byte-for-byte or schema-equal results."
+    }
+  ]
+}

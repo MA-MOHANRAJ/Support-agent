@@ -1,0 +1,54 @@
+name: CI Evaluation Harness & Regression Testing
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+        cache: "pip"
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Build Knowledge Base FAISS Vector Index
+      run: |
+        python -m src.rag.ingest
+
+    - name: Run Pytest Test Suite
+      env:
+        LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+        LLM_MODEL: ${{ secrets.LLM_MODEL }}
+      run: |
+        pytest -v
+
+    - name: Run AI Quality Evaluation Harness
+      env:
+        LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+        LLM_MODEL: ${{ secrets.LLM_MODEL }}
+      run: |
+        python -m evaluation.evaluate
+
+    - name: Upload Evaluation Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: eval-report
+        path: |
+          evaluation/eval_report.json
+          evaluation/eval_report.md

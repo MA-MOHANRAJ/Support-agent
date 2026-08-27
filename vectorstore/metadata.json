@@ -1,0 +1,722 @@
+[
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 0,
+    "text": "# Billing & Plans — Reference Guide"
+  },
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 1,
+    "text": "## Plan Overview"
+  },
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 2,
+    "text": "| | Starter | Professional | Business | Enterprise |\n|--|---------|--------------|----------|------------|\n| **Price (per seat/month)** | $15 | $45 | $90 | Custom |\n| **Minimum seats** | 1 | 5 | 20 | 50 |\n| **Billing cycle** | Monthly | Monthly or Annual | Annual | Annual |\n| **Support SLA** | 48h | 24h | 8h | 2h (dedicated TAM) |\n| **SSO / SAML** | No | No | Yes | Yes |\n| **Audit logs retention** | 30 days | 90 days | 1 year | 7 years |\n| **Customer-managed keys** | No | No | Yes | Yes |\n| **De"
+  },
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 3,
+    "text": "| 30 days | 90 days | 1 year | 7 years |\n| **Customer-managed keys** | No | No | Yes | Yes |\n| **Dedicated TAM** | No | No | No | Yes |"
+  },
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 4,
+    "text": "Annual billing includes a 20% discount vs monthly.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 5,
+    "text": "## How Seat Billing Works\n\nA **seat** is any user account that was active (logged in or made an API call) at least once during the billing period.\n\n- Seats are counted at the end of each billing month.\n- Adding users mid-month is prorated to the day.\n- Deactivating a user does **not** immediately free the seat — the account is counted until the billing month closes.\n- **Overage:** if active users exceed the purchased seat count, overage is billed at 1.5× the per-seat rate."
+  },
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 6,
+    "text": "**Common billing query:** \"We're being charged for N seats but only have M active users.\"\n\nResolution steps:\n1. Export the active user list: Settings → Users → Export → filter \"Active in last 30 days\".\n2. Compare against the invoice seat count.\n3. Check for service accounts and API users — these count as seats.\n4. If a discrepancy remains after this check, raise a billing dispute with the exported list attached.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 7,
+    "text": "## Invoices & Payment\n\n- Invoices are generated on the 1st of each month (monthly) or on the annual renewal date.\n- Payment methods: credit card, ACH (US), SEPA (EU), wire transfer (Enterprise only).\n- Invoices are available at Settings → Billing → Invoices.\n- Invoice disputes must be raised within 30 days of issue date.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 8,
+    "text": "## Upgrading Plans"
+  },
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 9,
+    "text": "### Self-serve upgrade (Starter → Professional → Business)\n\n1. Settings → Billing → Change Plan.\n2. Select new plan and confirm seat count.\n3. Prorated charge applied immediately; new features available within minutes."
+  },
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 10,
+    "text": "### Enterprise upgrade\n\nEnterprise plans require a sales conversation for custom pricing, SLA negotiation, and TAM assignment.\n\n1. Submit upgrade interest at Settings → Billing → Contact Sales, or email your current TAM.\n2. Sales will respond within 1 business day.\n3. Enterprise onboarding includes a kick-off call, dedicated Slack channel, and a 30-day parallel support period.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 11,
+    "text": "## Cancellation & Downgrade Policy\n\n- **Monthly plans:** cancel at any time. Access continues until end of the current billing month. No refunds for partial months.\n- **Annual plans:** cancel within 30 days for a full refund. After 30 days, no refunds — access continues until the annual period ends.\n- **Downgrade:** if downgrading to a lower plan, data exceeding the new plan's limits is read-only until reduced below the limit.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 12,
+    "text": "## Common Billing FAQs\n\n**Q: Can I get a credit for service downtime?**  \nA: Yes, for incidents breaching the plan's SLA uptime guarantee. Submit a credit request within 30 days of the incident at Settings → Billing → Request Credit, citing the incident ID from the status page."
+  },
+  {
+    "source": "knowledge-base\\billing\\billing-and-plans.md",
+    "chunk_id": 13,
+    "text": "**Q: Are there discounts for non-profits or education?**  \nA: Yes — 30% discount for verified non-profits and educational institutions. Apply at billing@yourplatform.com with your charity registration or .edu domain verification.\n\n**Q: What happens to my data if I cancel?**  \nA: Data is retained in a read-only state for 90 days after cancellation. You can export all data during this window. After 90 days, data is permanently deleted."
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 0,
+    "text": "# Onboarding Guide — New Customers & Users"
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 1,
+    "text": "## New Organisation Onboarding Checklist\n\nComplete these steps within the first 7 days to ensure a smooth rollout."
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 2,
+    "text": "### Step 1: Account setup (Day 1)\n\n- [ ] Verify the admin email and accept the invitation\n- [ ] Set organisation name and region: Settings → Organisation → General\n- [ ] Configure SSO if on Business/Enterprise plan: Settings → SSO (see [Authentication & SSO guide](../troubleshooting/authentication-sso.md))\n- [ ] Set the default session timeout: Settings → Security → Session Timeout (recommended: 8 hours)\n- [ ] Enable MFA requirement for all users: Settings → Security → Require MFA"
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 3,
+    "text": "### Step 2: User provisioning (Days 1–3)\n\n**Option A — Bulk CSV import:**\n1. Download the template: Settings → Users → Import → Download Template.\n2. Fill in: email, first name, last name, role (`admin`, `editor`, `viewer`).\n3. Upload and confirm. Invitation emails are sent automatically."
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 4,
+    "text": "**Option B — SSO auto-provisioning (Business/Enterprise):**\n1. Configure your IDP to send SCIM provisioning events to the platform.\n2. SCIM endpoint: `https://[product].yourdomain.com/scim/v2/`\n3. Bearer token: generate at Settings → SSO → SCIM → Generate Token.\n4. New IDP users are provisioned automatically within 5 minutes of their first SSO login.\n\n**Option C — Manual invite:**\nSettings → Users → Invite User → enter email and role."
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 5,
+    "text": "### Step 3: Product configuration (Days 2–5)"
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 6,
+    "text": "Refer to the relevant product guide for initial setup:\n- [DataBridge Pro](../products/databridge-pro.md) — configure first data source and pipeline\n- [CloudSync](../products/cloudsync.md) — set up first sync job\n- [AnalyticsHub](../products/analyticshub.md) — connect first data source and create a dashboard\n- [SecureVault](../products/securevault.md) — import first secrets and configure key rotation\n- [WorkflowEngine](../products/workflowengine.md) — create first workflow from a template"
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 7,
+    "text": "### Step 4: Notifications & alerting (Day 3–5)\n\n- Configure Slack or email notifications: Settings → Notifications.\n- Set up at least one admin alert for service errors and billing thresholds.\n- For Enterprise: your dedicated TAM will schedule a kick-off call in the first 5 days."
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 8,
+    "text": "### Step 5: Training (Days 5–7)\n\n- Self-paced courses: Help → Learning Centre.\n- Live onboarding webinar: runs every Tuesday at 10:00 AM ET — register at help.yourplatform.com/webinars.\n- Enterprise: schedule a bespoke training session with your TAM.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 9,
+    "text": "## Role Reference\n\n| Role | Can do | Cannot do |\n|------|--------|-----------|\n| **Admin** | Everything | — |\n| **Editor** | Create/edit all objects, run workflows, export data | Manage billing, manage users, change SSO config |\n| **Viewer** | Read-only access to all objects | Create, edit, delete, or export |\n| **API User** | Programmatic access per assigned token scopes | UI login |\n\n---"
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 10,
+    "text": "## Bulk User Provisioning FAQ\n\n**Q: How many users can I import at once?**  \nA: CSV import supports up to 500 users per file. For larger imports, use SCIM or split into multiple CSVs.\n\n**Q: What if an invited user doesn't receive the invitation email?**  \nA: Check spam folders. If not found, resend from Settings → Users → [user] → Resend Invite. Invitations expire after 7 days."
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 11,
+    "text": "**Q: Can I set different product access per user?**  \nA: Yes — on Business/Enterprise, product-level permissions can be configured per user or per group: Settings → Users → [user] → Product Access.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 12,
+    "text": "## Recommended Training Path by Role"
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 13,
+    "text": "### Technical users (engineers, IT admins)\n1. Platform architecture overview (30 min) — Learning Centre\n2. API & authentication (45 min) — Learning Centre\n3. Product-specific deep dive (1–2 hours each) — Learning Centre\n4. Office hours: Thursdays 2:00 PM ET — register at help.yourplatform.com/office-hours"
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 14,
+    "text": "### Business users (analysts, operations, RevOps)\n1. Getting started with dashboards — AnalyticsHub (20 min)\n2. Building your first workflow — WorkflowEngine (30 min)\n3. Self-serve reporting guide (25 min)\n4. Webinar: Data for non-technical teams — every second Wednesday"
+  },
+  {
+    "source": "knowledge-base\\onboarding\\onboarding-guide.md",
+    "chunk_id": 15,
+    "text": "### Admins\n1. Security & compliance configuration (45 min)\n2. User management & SSO (30 min)\n3. Billing & plan management (20 min)\n4. Audit logging best practices (30 min)"
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 0,
+    "text": "# AnalyticsHub — Product Reference"
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 1,
+    "text": "## Overview\n\nAnalyticsHub is a self-serve business intelligence platform that connects to live data sources, enables drag-and-drop dashboard creation, and delivers scheduled reports via email, Slack, or webhook. It is designed for both technical and non-technical users.\n\n**Current stable version:** 3.0.0  \n**Previous stable version:** 2.9.4\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 2,
+    "text": "## Core Modules"
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 3,
+    "text": "### Dashboard\n\nInteractive visualisation canvas. Supports charts (line, bar, scatter, pie, heatmap), KPI tiles, data tables, and embedded SQL views."
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 4,
+    "text": "- **Performance note:** dashboards with more than 20 widgets or queries spanning > 12 months of data may load slowly. Use the Query Optimiser (Settings → Performance → Optimise) before publishing.\n- Auto-refresh interval: configurable from 1 minute to 24 hours.\n- Sharing: dashboards can be shared as view-only links (no login required) or embedded via iframe."
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 5,
+    "text": "### Reports\n\nScheduled PDF/CSV/Excel exports delivered on a cron schedule.\n\n- Maximum report size: 50 MB. Reports exceeding this are split into parts automatically.\n- Exports are retained for 30 days in Settings → Reports → Archive.\n- If an export is truncated at 1000 rows, check the plan limit (Starter: 1000 rows, Professional: 100,000 rows, Business/Enterprise: unlimited)."
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 6,
+    "text": "### Data Sources\n\nConnectors to databases (PostgreSQL, MySQL, Snowflake, BigQuery, Redshift), APIs (REST/GraphQL with OAuth), and file uploads (CSV, Excel, JSON).\n\n- Data source credentials are encrypted at rest with AES-256 and in transit with TLS 1.3.\n- Connection test available before saving: Settings → Data Sources → [source] → Test Connection.\n- Query timeout: 120 seconds (configurable up to 600s for Business/Enterprise)."
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 7,
+    "text": "### Alerts\n\nThreshold-based alerts that fire when a metric crosses a defined boundary.\n\n- Alert channels: email, Slack, PagerDuty, webhook.\n- Alert suppression: set a cool-down period to avoid alert storms (minimum 5 minutes).\n- If alerts are not firing, verify the channel token is valid: Settings → Alerts → [alert] → Test Alert."
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 8,
+    "text": "### Exports\n\nOn-demand data export from any dashboard widget or underlying query.\n\n- Supported formats: CSV, Excel (.xlsx), JSON, Parquet.\n- Row limit by plan: Starter 1,000 | Professional 100,000 | Business 1,000,000 | Enterprise unlimited.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 9,
+    "text": "## Common Support Scenarios"
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 10,
+    "text": "### Dashboard loads slowly or times out\n\n1. Open the Query Profiler: Dashboard → [widget] → Edit → Profiler.\n2. Look for full-table scans or missing indexes on the source database.\n3. Add date range filters to limit the data window.\n4. Enable caching for the data source: Settings → Data Sources → [source] → Enable Query Cache.\n5. If the issue persists after caching, contact support — the team can review query plans."
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 11,
+    "text": "### Report exports truncated at 1000 rows\n\nThis is a plan limit, not a bug.\n- Starter plan: 1,000 rows per export.\n- Upgrade to Professional or above for higher limits.\n- Workaround (Starter): split the export into multiple date ranges."
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 12,
+    "text": "### Alert not triggering\n\n1. Confirm the alert condition is actually met by running the underlying query manually.\n2. Check the cool-down period — the alert may be suppressed.\n3. Verify the notification channel token: Settings → Alerts → [alert] → Test Alert.\n4. Check email spam folder or Slack app permissions if the alert fires (visible in alert history) but messages are not received.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\analyticshub.md",
+    "chunk_id": 13,
+    "text": "## Pricing & Limits by Plan\n\n| Feature | Starter | Professional | Business | Enterprise |\n|---------|---------|--------------|----------|------------|\n| Dashboards | 5 | 50 | 500 | Unlimited |\n| Scheduled reports | 2 | 20 | 100 | Unlimited |\n| Export row limit | 1,000 | 100,000 | 1,000,000 | Unlimited |\n| Data source connections | 2 | 10 | 50 | Unlimited |\n| Support SLA | 48h | 24h | 8h | 2h |"
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 0,
+    "text": "# CloudSync — Product Reference"
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 1,
+    "text": "## Overview\n\nCloudSync is a real-time file and data synchronisation platform that keeps content consistent across cloud storage providers, on-premise systems, and end-user devices. It supports conflict resolution, selective sync, bandwidth throttling, and granular permission controls.\n\n**Current stable version:** 2.5.0  \n**Previous stable version:** 2.4.1  \n**Deprecated (EOL 2025-09-30):** 2.2.x and below\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 2,
+    "text": "## Core Modules"
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 3,
+    "text": "### File Sync\n\nBidirectional sync between configured endpoints. Supports Amazon S3, Azure Blob, Google Cloud Storage, on-premise NAS, and desktop clients (Windows, macOS).\n\n**Sync modes:**\n- `realtime` — changes propagate within seconds (requires persistent connection)\n- `scheduled` — sync runs on a cron schedule (minimum every 5 minutes)\n- `manual` — sync triggered via API or UI action"
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 4,
+    "text": "**Configuration options:**\n- `include_patterns` — glob patterns for files to include (e.g., `**/*.csv`)\n- `exclude_patterns` — glob patterns to exclude (e.g., `**/.DS_Store`, `**/node_modules`)\n- `max_file_size_mb` — files above this limit are skipped (default: 500)\n- `versioning` — keep last N versions per file (default: 10, max: 100)"
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 5,
+    "text": "### Conflict Resolution\n\nWhen the same file is modified on two endpoints before a sync cycle completes, a conflict is created.\n\n**Resolution strategies:**\n- `newest_wins` — most recent modification timestamp takes precedence\n- `source_wins` — the designated \"primary\" endpoint always wins\n- `manual` — conflict is held in queue for human review\n- `fork` — both versions kept; conflicted copy created with timestamp suffix"
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 6,
+    "text": "Conflicts are visible at: Settings → Sync → Conflicts.  \nUnresolved conflicts older than 30 days trigger an alert to the account admin."
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 7,
+    "text": "### Permissions\n\nFile-level and folder-level permissions are enforced independently of the underlying storage provider's permissions.\n\n**Permission levels:**\n- `read` — can download/view\n- `write` — can upload and modify\n- `admin` — can change permissions, delete, and manage shares\n\n**SSO integration:** CloudSync respects group memberships from Okta, Azure AD, and Google Workspace. Group sync runs every 15 minutes."
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 8,
+    "text": "**Known limitation:** Permission changes made directly in the underlying storage provider (e.g., AWS IAM) are not reflected in CloudSync until the next sync cycle. Always manage permissions through CloudSync for consistent enforcement."
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 9,
+    "text": "### Bandwidth Limits\n\nTo avoid saturating network links, configure bandwidth throttling per sync job.\n\n- `upload_limit_mbps` and `download_limit_mbps` (0 = unlimited)\n- Throttling schedules allow different limits by time of day (e.g., reduced during business hours)\n- Network path: Settings → Sync Jobs → [job] → Bandwidth"
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 10,
+    "text": "### Integrations\n\nCloudSync integrates with Slack (sync status notifications), PagerDuty (critical alert routing), Jira (attach synced files to tickets), and Salesforce (sync customer documents to account records).\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 11,
+    "text": "## Common Support Scenarios"
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 12,
+    "text": "### Sync has stopped / files not updating\n\n1. Check the sync job status at Settings → Sync Jobs. Look for `STALLED` or `ERROR` state.\n2. Inspect the job log — most common causes:\n   - Expired credentials for the destination storage provider\n   - File above `max_file_size_mb` blocking the queue\n   - Network timeout (`ERR_CONNECTION_TIMEOUT`)\n3. Restart the job: Sync Jobs → [job] → Actions → Force Sync.\n4. If using `realtime` mode, verify the persistent connection is healthy (green dot in the UI)."
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 13,
+    "text": "### Conflict storm after bulk upload\n\nIf many files were uploaded offline and synced simultaneously:\n1. Switch the job temporarily to `manual` mode.\n2. Download the conflict report: Sync Jobs → [job] → Export Conflicts.\n3. Resolve conflicts in bulk using the API: `POST /v2/conflicts/resolve` with strategy in payload.\n4. Re-enable the original sync mode."
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 14,
+    "text": "### New users cannot access synced files"
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 15,
+    "text": "1. Confirm the user's group membership is correct in the IDP (Okta/Azure AD/Google).\n2. Wait up to 15 minutes for the group sync cycle, or force a manual group sync: Settings → Integrations → [IDP] → Sync Now.\n3. Verify the user has been assigned the correct permission level in CloudSync (not just in the IDP).\n4. Check if `SSO_GROUP_NOT_FOUND` appears in audit logs — this means the group name in CloudSync does not match the IDP group name exactly (case-sensitive).\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\cloudsync.md",
+    "chunk_id": 16,
+    "text": "## Pricing & Limits by Plan\n\n| Feature | Starter | Professional | Business | Enterprise |\n|---------|---------|--------------|----------|------------|\n| Storage synced | 100 GB | 1 TB | 10 TB | Unlimited |\n| Sync endpoints | 2 | 10 | 50 | Unlimited |\n| File versioning | 5 versions | 25 versions | 100 versions | Unlimited |\n| Bandwidth throttling | No | Yes | Yes | Yes |\n| Support SLA | 48h | 24h | 8h | 2h |"
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 0,
+    "text": "# DataBridge Pro — Product Reference"
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 1,
+    "text": "## Overview\n\nDataBridge Pro is a managed data integration platform that enables organisations to ingest, transform, and route data between internal systems and third-party services. It supports batch and streaming pipelines, schema validation, and a connector marketplace with 80+ pre-built integrations.\n\n**Current stable version:** 3.1.2  \n**Previous stable version:** 2.6.0  \n**Deprecated (EOL 2025-12-31):** 2.3.x and below\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 2,
+    "text": "## Core Modules"
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 3,
+    "text": "### Data Ingestion\n\nHandles raw data intake from sources including REST APIs, databases, file uploads (CSV, JSON, Parquet), and message queues (Kafka, SQS).\n\n**Key configuration fields:**\n- `source_type` — one of `rest_api`, `database`, `file`, `queue`\n- `batch_size` — records per batch (default: 1000, max: 50000)\n- `retry_policy` — `none`, `linear`, or `exponential` (recommended: `exponential`)\n- `schema_enforcement` — `strict`, `loose`, or `off`"
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 4,
+    "text": "**Common errors:**\n- `ERR_CONNECTION_TIMEOUT` — Source unreachable. Check network rules and firewall allowlist.\n- `SCHEMA_MISMATCH` — Incoming record does not match registered schema. Review schema version in Schema Management.\n- `RATE_LIMIT_EXCEEDED` — Source API has throttled requests. Reduce `batch_size` or add delay between batches."
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 5,
+    "text": "### Schema Management\n\nMaintains versioned schemas for all data streams. Schemas are defined in JSON Schema draft-07 format.\n\n- **Schema registry URL:** `https://registry.databridge.yourdomain.com`\n- Schema versions are immutable once published. Create a new version to make changes.\n- Breaking changes (field removal, type change) require a new major version and a migration plan."
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 6,
+    "text": "**Tip:** Use `schema_enforcement: loose` during initial onboarding, then tighten to `strict` once the pipeline is stable."
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 7,
+    "text": "### Pipeline Monitoring\n\nReal-time and historical visibility into pipeline health.\n\n- **Heartbeat interval:** every 60 seconds. If no heartbeat for 15 minutes, alert fires.\n- **Dashboard path:** Settings → Monitoring → Pipelines\n- **Key metrics:** records_processed, error_rate, lag_seconds, throughput_rps\n\n**Alert thresholds (defaults):**\n| Metric | Warning | Critical |\n|--------|---------|----------|\n| Error rate | > 1% | > 5% |\n| Lag | > 30s | > 300s |\n| Heartbeat | missed 1 | missed 3 |"
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 8,
+    "text": "### Connectors\n\nPre-built connectors are available for Salesforce, Snowflake, BigQuery, Jira, HubSpot, Slack, and 75+ others.\n\n- Connector versions are pinned per pipeline. Update connectors explicitly — they do not auto-update.\n- OAuth connectors require token refresh every 60 days. Set calendar reminders or enable auto-refresh in Settings → Connectors → [connector name] → Auto-refresh."
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 9,
+    "text": "### API\n\nFull REST API available at `https://api.databridge.yourdomain.com/v3/`.\n\n- Authentication: Bearer token (API key from Settings → API Keys)\n- Rate limit: 1000 req/min (Enterprise), 200 req/min (Professional), 60 req/min (Starter)\n- Webhook delivery: HMAC-SHA256 signature in `X-DataBridge-Signature` header\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 10,
+    "text": "## Common Support Scenarios"
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 11,
+    "text": "### Pipeline stopped processing\n\n1. Check Pipeline Monitoring dashboard for last heartbeat.\n2. Review error logs under Monitoring → Logs → filter by pipeline ID.\n3. Check if source credentials have expired (common after 90 days).\n4. Restart the pipeline from the UI: Pipelines → [pipeline] → Actions → Restart.\n5. If restart fails, check downstream quota: `QUOTA_EXCEEDED` error indicates storage limit reached."
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 12,
+    "text": "### Schema mismatch errors flooding logs\n\n1. Identify the field causing the mismatch in the error detail.\n2. In Schema Management, compare the registered schema version vs the incoming payload.\n3. Either update the source to match the schema, or publish a new schema version.\n4. Do **not** set `schema_enforcement: off` in production — this bypasses all validation."
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 13,
+    "text": "### Connector authentication failure\n\n1. Regenerate the OAuth token from the connector settings page.\n2. Ensure the redirect URI matches exactly (including trailing slash).\n3. For Salesforce: confirm the Connected App has `api`, `refresh_token`, and `offline_access` scopes.\n4. For BigQuery: the service account must have `roles/bigquery.dataEditor` on the target dataset.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\databridge-pro.md",
+    "chunk_id": 14,
+    "text": "## Pricing & Limits by Plan\n\n| Feature | Starter | Professional | Business | Enterprise |\n|---------|---------|--------------|----------|------------|\n| Pipelines | 5 | 25 | 100 | Unlimited |\n| Records/month | 5M | 50M | 500M | Unlimited |\n| Connectors | 10 | 40 | 80 | All |\n| API rate limit | 60/min | 200/min | 500/min | 1000/min |\n| Support SLA | 48h | 24h | 8h | 2h |"
+  },
+  {
+    "source": "knowledge-base\\products\\securevault.md",
+    "chunk_id": 0,
+    "text": "# SecureVault — Product Reference"
+  },
+  {
+    "source": "knowledge-base\\products\\securevault.md",
+    "chunk_id": 1,
+    "text": "## Overview\n\nSecureVault is an enterprise secrets and key management platform. It provides centralised storage for API keys, credentials, certificates, and encryption keys, with audit logging, role-based access control, and integrations with major cloud providers and CI/CD pipelines.\n\n**Current stable version:** 2.6.0  \n**Previous stable version:** 2.5.3\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\securevault.md",
+    "chunk_id": 2,
+    "text": "## Core Modules"
+  },
+  {
+    "source": "knowledge-base\\products\\securevault.md",
+    "chunk_id": 3,
+    "text": "### Authentication\n\nSecureVault supports multiple authentication methods:\n- **Username + password** with MFA (TOTP or hardware key)\n- **SSO via SAML 2.0** (Okta, Azure AD, Google Workspace, Ping Identity)\n- **Machine-to-machine:** service account tokens with scoped permissions\n\nToken expiry defaults: user tokens 8 hours, service tokens 90 days.  \n`AUTH_TOKEN_EXPIRED` errors indicate the token has exceeded its TTL — re-authenticate or rotate the service token."
+  },
+  {
+    "source": "knowledge-base\\products\\securevault.md",
+    "chunk_id": 4,
+    "text": "### Encryption\n\nAll secrets are encrypted at rest using AES-256-GCM. In-transit encryption uses TLS 1.3 minimum.\n\n- Customer-managed keys (CMK) available on Business and Enterprise plans.\n- Key rotation: automatic 90-day rotation (configurable). Manual rotation available anytime.\n- Hardware Security Module (HSM) backing available for Enterprise."
+  },
+  {
+    "source": "knowledge-base\\products\\securevault.md",
+    "chunk_id": 5,
+    "text": "### Audit Logs\n\nImmutable, tamper-evident log of all read, write, delete, and permission change events.\n\n- Retention: 90 days (Starter/Professional), 1 year (Business), 7 years (Enterprise).\n- Export: JSON or CSV, via UI or API.\n- SIEM integration: Splunk, Datadog, and generic syslog supported.\n- Searching logs: Audit → Logs → filter by user, resource, action, or time range."
+  },
+  {
+    "source": "knowledge-base\\products\\securevault.md",
+    "chunk_id": 6,
+    "text": "### Key Management\n\nCreate, rotate, and retire encryption keys.\n\n- **Key states:** `active`, `pending_rotation`, `retired`, `destroyed`\n- Keys in `pending_rotation` state are still valid for decryption but cannot be used for new encryption.\n- `CHECKSUM_MISMATCH` errors during decryption indicate the data was encrypted with a key that has since been destroyed. Contact support immediately — recovery may be possible within the 30-day soft-delete window."
+  },
+  {
+    "source": "knowledge-base\\products\\securevault.md",
+    "chunk_id": 7,
+    "text": "### SSO Configuration\n\n1. Obtain the SAML metadata XML from your IDP.\n2. Upload in Settings → SSO → Configure → Upload Metadata.\n3. Set the Assertion Consumer Service (ACS) URL to `https://vault.yourdomain.com/sso/saml/callback`.\n4. Map IDP group attributes to SecureVault roles in Settings → SSO → Group Mapping."
+  },
+  {
+    "source": "knowledge-base\\products\\securevault.md",
+    "chunk_id": 8,
+    "text": "**Common SSO errors:**\n- `SAML_ASSERTION_EXPIRED` — clock skew between IDP and SecureVault exceeds 5 minutes. Sync NTP on both.\n- `AUDIENCE_MISMATCH` — the Entity ID in the IDP config does not match `https://vault.yourdomain.com`.\n- `GROUP_NOT_MAPPED` — IDP group has no corresponding SecureVault role assigned.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\securevault.md",
+    "chunk_id": 9,
+    "text": "## Common Support Scenarios"
+  },
+  {
+    "source": "knowledge-base\\products\\securevault.md",
+    "chunk_id": 10,
+    "text": "### Users cannot log in after SSO migration\n\n1. Verify ACS URL and Entity ID are correct in the IDP.\n2. Check for clock skew: `SAML_ASSERTION_EXPIRED` in audit logs.\n3. Confirm group mappings exist for all IDP groups users belong to.\n4. Temporarily allow password login for admins: Settings → SSO → Fallback → Enable Password Login (Emergency)."
+  },
+  {
+    "source": "knowledge-base\\products\\securevault.md",
+    "chunk_id": 11,
+    "text": "### Secret rotation breaking downstream services\n\n1. SecureVault supports **dual-active rotation**: the old and new secret are both valid during a transition window (default 24 hours).\n2. Enable dual-active rotation: Key Management → [secret] → Rotate → Advanced → Enable Dual-Active.\n3. Update downstream services to fetch the new secret during the window.\n4. After confirmation, retire the old version."
+  },
+  {
+    "source": "knowledge-base\\products\\securevault.md",
+    "chunk_id": 12,
+    "text": "### Audit log shows unauthorised access attempts\n\n1. Identify the source IP and user from the log entry.\n2. If the IP is unrecognised, immediately revoke the affected token: API Keys → [key] → Revoke.\n3. Enable IP allowlisting: Settings → Security → IP Allowlist.\n4. Review and tighten permissions for the affected role."
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 0,
+    "text": "# WorkflowEngine — Product Reference"
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 1,
+    "text": "## Overview\n\nWorkflowEngine is a no-code/low-code automation platform that connects triggers (events from integrated apps) to actions (operations in internal or external systems). It is designed for operations, RevOps, and engineering teams who need reliable, observable automation without building custom integrations.\n\n**Current stable version:** 3.1.2  \n**Previous stable version:** 3.0.5\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 2,
+    "text": "## Core Modules"
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 3,
+    "text": "### Triggers\n\nEvents that start a workflow. Supported trigger types:\n- **Webhook** — HTTP POST to a unique workflow URL\n- **Schedule** — cron expression (e.g., `0 9 * * 1` = every Monday at 09:00)\n- **App event** — native events from connected apps (e.g., \"new Jira ticket created\", \"Salesforce deal closed\")\n- **Manual** — triggered by a user via the UI or API"
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 4,
+    "text": "Trigger reliability: Webhook triggers have an at-least-once delivery guarantee. Idempotency keys (`X-Workflow-Idempotency-Key` header) prevent duplicate execution."
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 5,
+    "text": "### Actions\n\nOperations performed when a workflow runs. Each action connects to an integration and performs a specific operation (create record, send message, update field, call API endpoint, etc.).\n\n- Actions execute sequentially by default. Parallel branches available on Professional+.\n- Maximum actions per workflow: 50 (Starter), 200 (Professional), unlimited (Business/Enterprise).\n- Action timeout: 30 seconds per action. Use async actions for long-running operations."
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 6,
+    "text": "### Scheduling\n\nCron-based and interval-based scheduling."
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 7,
+    "text": "- Timezone support: all IANA timezones. Configure in workflow Settings → Schedule → Timezone.\n- Missed executions: if a scheduled workflow fails to run (e.g., during maintenance), it will execute once on recovery — it does not back-fill all missed runs.\n- If scheduled jobs are not executing, check: workflow is enabled, schedule is valid (use the cron validator in the UI), and the workflow has not exceeded the error threshold (3 consecutive failures pauses the workflow)."
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 8,
+    "text": "### Error Handling\n\n- **Retry policy:** configurable per workflow. Default: 3 retries with exponential backoff.\n- **Dead-letter queue (DLQ):** failed executions after all retries are stored for 7 days. Review at Workflows → [workflow] → Execution History → Failed.\n- **Error notifications:** configure email/Slack alerts when a workflow enters error state.\n- **Circuit breaker:** after 10 consecutive failures, the workflow is automatically paused to prevent cascading errors."
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 9,
+    "text": "### Templates\n\nPre-built workflow templates for common use cases:\n- Ticket-to-task sync (Zendesk ↔ Jira)\n- New customer onboarding sequence\n- SLA breach alert escalation\n- Nightly data export to Snowflake\n- Salesforce deal won → Slack announcement\n\nTemplates are available at: Workflows → New → Browse Templates.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 10,
+    "text": "## Common Support Scenarios"
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 11,
+    "text": "### Scheduled workflow not running\n\n1. Confirm the workflow is **enabled** (green status indicator).\n2. Validate the cron expression using Workflows → [workflow] → Schedule → Validate.\n3. Check if the workflow was auto-paused: 3 consecutive failures trigger an automatic pause.\n4. Review Execution History for the last attempted run and its error.\n5. Check timezone — a workflow scheduled for \"09:00\" in a UTC workflow running in a US timezone will appear to run at unexpected local times."
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 12,
+    "text": "### Workflow runs but changes don't persist\n\nThis is usually an action configuration issue:\n1. Open the execution log for the failed run: Execution History → [run] → Action Detail.\n2. Look for `200 OK` responses with empty bodies — some APIs return success but don't apply the change if required fields are missing.\n3. Verify the action's field mapping: the correct record ID field must be mapped from a previous step.\n4. Enable \"Strict mode\" on the action to surface silent failures."
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 13,
+    "text": "### Duplicate workflow executions\n\nIf a webhook trigger is causing duplicate executions:\n1. Enable idempotency: add `X-Workflow-Idempotency-Key` to webhook calls (typically the source event ID).\n2. WorkflowEngine deduplicates identical idempotency keys within a 24-hour window.\n3. If duplicates persist, check if the source system is retrying failed webhook deliveries — configure the source to check for `200 OK` before retrying.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\products\\workflowengine.md",
+    "chunk_id": 14,
+    "text": "## Pricing & Limits by Plan\n\n| Feature | Starter | Professional | Business | Enterprise |\n|---------|---------|--------------|----------|------------|\n| Active workflows | 10 | 100 | 1,000 | Unlimited |\n| Executions/month | 1,000 | 50,000 | 500,000 | Unlimited |\n| Actions per workflow | 50 | 200 | 500 | Unlimited |\n| Parallel branches | No | Yes | Yes | Yes |\n| Support SLA | 48h | 24h | 8h | 2h |"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 0,
+    "text": "# Troubleshooting: Authentication & SSO\n\nThis guide covers the most common authentication and single sign-on issues across all products.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 1,
+    "text": "## Error Reference"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 2,
+    "text": "| Error Code | Product(s) | Meaning | First Action |\n|------------|-----------|---------|-------------|\n| `AUTH_TOKEN_EXPIRED` | All | Token TTL exceeded | Re-authenticate or rotate service token |\n| `403 Forbidden: insufficient_scope` | All | Token lacks required permission scope | Review and update token scopes |\n| `SAML_ASSERTION_EXPIRED` | SecureVault, CloudSync | Clock skew > 5 min between IDP and SP | Sync NTP on both systems |\n| `AUDIENCE_MISMATCH` | SecureVault | Entity ID mismatch in SA"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 3,
+    "text": "P and SP | Sync NTP on both systems |\n| `AUDIENCE_MISMATCH` | SecureVault | Entity ID mismatch in SAML config | Correct Entity ID in IDP to match SP URL |\n| `GROUP_NOT_MAPPED` | SecureVault, CloudSync | IDP group has no role mapping | Add group mapping in SSO settings |\n| `SESSION_INVALID` | All | Concurrent session limit reached | Sign out other sessions or increase limit |\n| `SSO_GROUP_NOT_FOUND` | CloudSync | Group name case mismatch | Verify exact group name including case |"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 4,
+    "text": "` | CloudSync | Group name case mismatch | Verify exact group name including case |"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 5,
+    "text": "---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 6,
+    "text": "## SSO Setup Checklist\n\nBefore opening a support ticket for SSO issues, confirm all of the following:"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 7,
+    "text": "- [ ] SAML metadata XML is current (not expired)\n- [ ] ACS URL in IDP matches exactly: `https://[product].yourdomain.com/sso/saml/callback`\n- [ ] Entity ID in IDP matches exactly: `https://[product].yourdomain.com`\n- [ ] At least one group mapping exists in the product SSO settings\n- [ ] System clocks on IDP and service provider are synchronised (NTP)\n- [ ] The user's IDP group is mapped to a product role\n- [ ] Password login fallback is enabled for emergency admin access\n\n---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 8,
+    "text": "## New Users Cannot Authenticate via SSO\n\n**Symptom:** Existing users log in fine; new joiners get an error.\n\n**Most common cause:** The new user's IDP group has not been mapped to a product role."
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 9,
+    "text": "**Resolution:**\n1. Log in to the product as an admin.\n2. Navigate to Settings → SSO → Group Mapping.\n3. Verify the user's primary IDP group appears in the list with a role assigned.\n4. If the group is missing, add it with the appropriate role.\n5. Ask the user to retry — no reprovisioning needed after mapping is added.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 10,
+    "text": "## Service Account Token Expired\n\n**Symptom:** Automated jobs or API integrations return `AUTH_TOKEN_EXPIRED`.\n\n**Resolution:**\n1. Log in as an admin.\n2. Navigate to Settings → API Keys → [service account].\n3. Click Rotate to generate a new token.\n4. Update the token in the downstream service (environment variable, secret manager, etc.).\n5. Consider enabling auto-rotation: Settings → API Keys → [key] → Auto-rotate → Every 90 days.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 11,
+    "text": "## Concurrent Session Limit\n\n**Symptom:** `SESSION_INVALID` error on second device login.\n\n**Resolution:**\n- Starter plan: 1 concurrent session per user.\n- Professional+: configurable up to 10 concurrent sessions.\n- Admin override: Settings → Security → Session Policy → Max Concurrent Sessions.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 12,
+    "text": "## Scope Errors (`403 Forbidden: insufficient_scope`)\n\nTokens are scoped at creation time. Common missing scopes:"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 13,
+    "text": "| Product | Operation | Required Scope |\n|---------|-----------|---------------|\n| DataBridge Pro | Write pipeline config | `pipelines:write` |\n| DataBridge Pro | Read audit logs | `audit:read` |\n| CloudSync | Manage permissions | `permissions:admin` |\n| AnalyticsHub | Export data | `exports:read` |\n| SecureVault | Rotate keys | `keys:rotate` |\n| WorkflowEngine | Trigger workflow | `workflows:execute` |"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\authentication-sso.md",
+    "chunk_id": 14,
+    "text": "To add scopes to an existing token: tokens are **immutable** — create a new token with the required scopes and revoke the old one."
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 0,
+    "text": "# Troubleshooting: Performance Issues\n\nThis guide covers performance degradation, timeouts, and slow response issues across all products.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 1,
+    "text": "## Error Reference"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 2,
+    "text": "| Error | Likely Cause | Resolution |\n|-------|-------------|------------|\n| `ERR_CONNECTION_TIMEOUT after 30s` | Network or source unreachable | Check firewall, VPN, and source availability |\n| `PIPELINE_STALLED: no heartbeat for 15 minutes` | Pipeline worker crashed or source blocked | Restart pipeline; check source credentials |\n| `RATE_LIMIT_EXCEEDED: retry after 60s` | API quota hit on source or destination | Reduce batch size or add retry backoff |\n| `QUOTA_EXCEEDED: storage limit reached`"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 3,
+    "text": "or destination | Reduce batch size or add retry backoff |\n| `QUOTA_EXCEEDED: storage limit reached` | Plan storage limit hit | Archive old data or upgrade plan |\n| `DEPENDENCY_UNAVAILABLE` | Downstream service unreachable | Check status page; retry after resolution |"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 4,
+    "text": "---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 5,
+    "text": "## Diagnosing Slow Performance"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 6,
+    "text": "### Step 1 — Identify where the slowness is\n\n- **UI slow (all pages):** likely a client-side network issue or a platform-wide incident. Check the status page at `status.yourplatform.com`.\n- **Specific page/feature slow:** usually a heavy query or a missing cache.\n- **API slow:** check response headers for `X-Processing-Time`. If > 2000ms, open a support ticket with the request ID."
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 7,
+    "text": "### Step 2 — Check for active incidents\n\nAlways check `status.yourplatform.com` before investigating further. Many performance reports resolve automatically when an incident clears."
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 8,
+    "text": "### Step 3 — Query and data volume\n\nFor AnalyticsHub and DataBridge Pro, large data volumes are the most common cause:\n- Narrow the date range or add filters.\n- Enable query caching.\n- For DataBridge Pro: reduce `batch_size` and enable `exponential` retry policy.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 9,
+    "text": "## AnalyticsHub: Dashboard Timeout\n\n**Symptom:** Dashboard fails to load; spinner runs indefinitely or \"Query timed out\" appears."
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 10,
+    "text": "**Resolution:**\n1. Edit the slowest widget and open the Query Profiler.\n2. Look for full-table scans (no `WHERE` clause or no index hit).\n3. Add a date filter: even `WHERE created_at > NOW() - INTERVAL '90 days'` dramatically reduces scan size.\n4. Enable query caching: Data Sources → [source] → Enable Query Cache (5-minute TTL default).\n5. If the query is optimised and still slow, raise query timeout limit: Settings → Data Sources → [source] → Timeout → increase to 300s.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 11,
+    "text": "## DataBridge Pro: Pipeline Throughput Degradation\n\n**Symptom:** Records processed per second drops significantly; backlog grows."
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 12,
+    "text": "**Resolution:**\n1. Check Monitoring → Pipelines → [pipeline] → Throughput graph for when degradation started.\n2. Common causes at this timestamp:\n   - Source API started rate-limiting (look for `RATE_LIMIT_EXCEEDED` in logs)\n   - Connector version was auto-updated (check connector changelog)\n   - Network latency increase to source\n3. Reduce `batch_size` to 100 temporarily — smaller batches are less likely to be rate-limited.\n4. Switch `retry_policy` to `exponential` if not already set.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 13,
+    "text": "# Troubleshooting: Integration Issues\n\n---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 14,
+    "text": "## Common Integration Errors"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 15,
+    "text": "| Error | Integration | Cause | Fix |\n|-------|------------|-------|-----|\n| `403 Forbidden` | Salesforce | OAuth token lacks `api` scope | Regenerate token with correct scopes |\n| `404 Not Found` on valid endpoint | Any REST | API version mismatch | Confirm API version in connector config |\n| Webhook not received | All | Endpoint not reachable from cloud | Whitelist platform IP ranges |\n| `CHECKSUM_MISMATCH` | DataBridge Pro | Data corruption or wrong key | Verify encryption key; contact suppor"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 16,
+    "text": "UM_MISMATCH` | DataBridge Pro | Data corruption or wrong key | Verify encryption key; contact support |\n| `INVALID_CONFIGURATION` | WorkflowEngine | Missing required field in action | Review action field mapping |"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 17,
+    "text": "---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 18,
+    "text": "## Platform IP Ranges for Webhook Allowlisting\n\nIf your infrastructure requires inbound IP allowlisting, add the following ranges:\n\n```\nUS-East:  203.0.113.0/24\nUS-West:  198.51.100.0/24\nEU-West:  192.0.2.0/24\nAPAC:     203.0.114.0/24\n```\n\nThese ranges are static and change only with 30-day advance notice on the status page.\n\n---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 19,
+    "text": "## Salesforce Integration: Common Issues"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 20,
+    "text": "1. **`refresh_token` scope missing** — the Connected App must have `api`, `refresh_token`, and `offline_access` scopes. Scopes cannot be added to an existing OAuth token; revoke and re-authorise.\n2. **Field API name vs label** — integrations use API field names (e.g., `AccountNumber`), not display labels (e.g., \"Account Number\"). Use Salesforce's Object Manager to find the API name.\n3. **Sandbox vs Production URLs** — confirm the integration is pointed to the correct Salesforce instance URL (`lo"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 21,
+    "text": "s Production URLs** — confirm the integration is pointed to the correct Salesforce instance URL (`login.salesforce.com` for production, `test.salesforce.com` for sandbox)."
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 22,
+    "text": "---"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 23,
+    "text": "## Snowflake Integration: Common Issues"
+  },
+  {
+    "source": "knowledge-base\\troubleshooting\\performance-and-integrations.md",
+    "chunk_id": 24,
+    "text": "1. **Warehouse suspended** — Snowflake auto-suspends idle warehouses. The first query after suspension includes a cold-start delay (5–60s). Enable auto-resume on the warehouse.\n2. **Role permissions** — the Snowflake role used by the integration must have `USAGE` on the database and schema, and `SELECT` (or `INSERT`/`UPDATE` as needed) on the tables.\n3. **IP allowlisting** — if Snowflake is configured with a network policy, add the platform IP ranges above."
+  }
+]

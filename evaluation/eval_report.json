@@ -1,0 +1,229 @@
+{
+  "timestamp": "2026-08-27T12:21:08.077615+00:00",
+  "summary": {
+    "total_tests": 12,
+    "passed_tests": 12,
+    "failed_tests": 0,
+    "pass_rate_pct": 100.0,
+    "average_quality_score": 0.97,
+    "total_duration_seconds": 1225.94,
+    "task1": {
+      "total": 6,
+      "passed": 6,
+      "average_score": 0.97
+    },
+    "task2": {
+      "total": 6,
+      "passed": 6,
+      "average_score": 0.98
+    }
+  },
+  "task1_results": [
+    {
+      "test_id": "T1-TC-01",
+      "name": "P1 Production Outage (Key Management Down)",
+      "type": "standard",
+      "passed": true,
+      "quality_score": 0.98,
+      "critique": "The triage correctly identifies a P1 bug, routes to the Security & IAM team, and the draft response safely requests logs and timestamps while warning about redacting secrets.",
+      "rule_passed": true,
+      "rule_failures": [],
+      "output_preview": {
+        "product": "SecureVault",
+        "category": "Bug",
+        "urgency": "P1",
+        "known_issue": false,
+        "recommended_team": "Security & IAM Team"
+      },
+      "latency_seconds": 17.72
+    },
+    {
+      "test_id": "T1-TC-02",
+      "name": "Integration Issue with Known Knowledge Base Match",
+      "type": "standard",
+      "passed": true,
+      "quality_score": 0.98,
+      "critique": "The triage correctly classifies the issue as an Integration problem, flags a known issue, cites the appropriate knowledge\u2011base article, and provides accurate, actionable steps with a professional tone.",
+      "rule_passed": true,
+      "rule_failures": [],
+      "output_preview": {
+        "product": "CloudSync",
+        "category": "Integration",
+        "urgency": "P2",
+        "known_issue": true,
+        "recommended_team": "Integrations & API Team"
+      },
+      "latency_seconds": 3.73
+    },
+    {
+      "test_id": "T1-TC-03",
+      "name": "Routine How-To / Configuration Query",
+      "type": "standard",
+      "passed": true,
+      "quality_score": 0.99,
+      "critique": "The triage correctly classifies the ticket as a P4 How\u2011To, routes it to Tier\u202f1 Support, and supplies clear step\u2011by\u2011step instructions, fully meeting the acceptance criteria.",
+      "rule_passed": true,
+      "rule_failures": [],
+      "output_preview": {
+        "product": "WorkflowEngine",
+        "category": "How-To",
+        "urgency": "P4",
+        "known_issue": false,
+        "recommended_team": "Tier 1 Support"
+      },
+      "latency_seconds": 13.45
+    },
+    {
+      "test_id": "T1-TC-04",
+      "name": "Performance Degradation / Connection Pool Exhaustion",
+      "type": "standard",
+      "passed": true,
+      "quality_score": 0.98,
+      "critique": "The triage correctly classifies the ticket as Performance with P2 urgency, cites connection\u2011pool exhaustion, and provides a clear, professional response draft.",
+      "rule_passed": true,
+      "rule_failures": [],
+      "output_preview": {
+        "product": "DataBridge Pro",
+        "category": "Performance",
+        "urgency": "P2",
+        "known_issue": false,
+        "recommended_team": "Tier 2 Engineering"
+      },
+      "latency_seconds": 23.92
+    },
+    {
+      "test_id": "T1-TC-05",
+      "name": "Adversarial: Highly Ambiguous / Vague Customer Ticket",
+      "type": "adversarial",
+      "passed": true,
+      "quality_score": 0.89,
+      "critique": "The response correctly asks for diagnostic details but incorrectly assumes the product (SecureVault) and area without evidence, violating the requirement to clarify the product, and the urgency level may be understated given the cancellation threat.",
+      "rule_passed": true,
+      "rule_failures": [],
+      "output_preview": {
+        "product": "SecureVault",
+        "category": "Bug",
+        "urgency": "P2",
+        "known_issue": false,
+        "recommended_team": "Tier 2 Engineering"
+      },
+      "latency_seconds": 24.62
+    },
+    {
+      "test_id": "T1-TC-06",
+      "name": "Billing and License Expansion Request",
+      "type": "standard",
+      "passed": true,
+      "quality_score": 0.99,
+      "critique": "The triage correctly classifies the request as Billing with a non\u2011emergency P4 urgency, routes to the appropriate team, and provides a clear, professional draft response.",
+      "rule_passed": true,
+      "rule_failures": [],
+      "output_preview": {
+        "product": "AnalyticsHub",
+        "category": "Billing",
+        "urgency": "P4",
+        "known_issue": false,
+        "recommended_team": "Billing & Account Operations"
+      },
+      "latency_seconds": 23.54
+    }
+  ],
+  "task2_results": [
+    {
+      "test_id": "T2-TC-01",
+      "name": "At-Risk Account with Churn & Competitor Signals (ACC-3336)",
+      "type": "standard",
+      "passed": true,
+      "quality_score": 0.97,
+      "critique": "Rule-based assessment (Judge LLM: Unterminated string starting at: line 4 column 15 (char 59))",
+      "rule_passed": true,
+      "rule_failures": [],
+      "output_preview": {
+        "company": "Omni Consumer Products",
+        "health_status": "At Risk",
+        "open_risks_count": 4,
+        "talking_points_count": 5
+      },
+      "latency_seconds": 951.28
+    },
+    {
+      "test_id": "T2-TC-02",
+      "name": "Healthy Account with Active Adoption (ACC-3033)",
+      "type": "standard",
+      "passed": true,
+      "quality_score": 0.97,
+      "critique": "Rule-based assessment (Judge LLM: Expecting value: line 1 column 1 (char 0))",
+      "rule_passed": true,
+      "rule_failures": [],
+      "output_preview": {
+        "company": "Polaris Group",
+        "health_status": "Healthy",
+        "open_risks_count": 3,
+        "talking_points_count": 5
+      },
+      "latency_seconds": 58.41
+    },
+    {
+      "test_id": "T2-TC-03",
+      "name": "High-Value Enterprise Account with Support Tickets (ACC-4654)",
+      "type": "standard",
+      "passed": true,
+      "quality_score": 0.97,
+      "critique": "Rule-based assessment (Judge LLM: Expecting value: line 1 column 1 (char 0))",
+      "rule_passed": true,
+      "rule_failures": [],
+      "output_preview": {
+        "company": "Initech",
+        "health_status": "Healthy",
+        "open_risks_count": 3,
+        "talking_points_count": 4
+      },
+      "latency_seconds": 47.73
+    },
+    {
+      "test_id": "T2-TC-04",
+      "name": "Adversarial: Non-Existent Account ID (ACC-9999)",
+      "type": "adversarial",
+      "passed": true,
+      "quality_score": 1.0,
+      "critique": "Successfully handled adversarial input with expected error: Account ID 'ACC-9999' not found in accounts dataset.",
+      "rule_passed": true,
+      "rule_failures": [],
+      "latency_seconds": 0.0
+    },
+    {
+      "test_id": "T2-TC-05",
+      "name": "Adversarial: Account with Zero Escalation Notes & Clean History (ACC-7893)",
+      "type": "adversarial",
+      "passed": true,
+      "quality_score": 0.98,
+      "critique": "The brief accurately reflects the account data and tickets without fabricating information; minor over\u2011statement of ticket severity slightly lowers factual precision.",
+      "rule_passed": true,
+      "rule_failures": [],
+      "output_preview": {
+        "company": "Solaris Data",
+        "health_status": "New",
+        "open_risks_count": 2,
+        "talking_points_count": 5
+      },
+      "latency_seconds": 45.86
+    },
+    {
+      "test_id": "T2-TC-06",
+      "name": "TAM Brief Determinism Test Across Consecutive Invocations",
+      "type": "standard",
+      "passed": true,
+      "quality_score": 0.97,
+      "critique": "Rule-based assessment (Judge LLM: Expecting value: line 1 column 1 (char 0))",
+      "rule_passed": true,
+      "rule_failures": [],
+      "output_preview": {
+        "company": "Omni Consumer Products",
+        "health_status": "At Risk",
+        "open_risks_count": 4,
+        "talking_points_count": 5
+      },
+      "latency_seconds": 15.7
+    }
+  ]
+}
